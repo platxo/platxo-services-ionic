@@ -1,0 +1,14 @@
+<ion-view view-title="Service List">
+
+	<ion-nav-buttons side="left">
+		<button ui-sref="tab.service-create" class="button icon ion-android-add-circle"></button>
+	</ion-nav-buttons>
+
+	<ion-content padding="true">
+		<ion-list>
+			<ion-item ui-sref="tab.service-detail({ id: service.id })" ng-repeat="service in services">
+				<h2>{{ service.name }}</h2>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
