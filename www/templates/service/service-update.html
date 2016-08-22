@@ -1,4 +1,4 @@
-<ion-view view-title="Service Create">
+<ion-view view-title="Service Update">
   <ion-content padding="true">
     <form ng-submit="update()" class="list">
       <label class="item item-input">
@@ -10,6 +10,7 @@
         <input ng-model="service.price" type="number" min="0" step="0.01">
       </label>
       <button type="submit" class="button button-balanced button-block button-outline icon-left ion-android-add">Update</button>
+      <button ng-click="cancel()" class="button button-positive button-block button-outline icon-left ion-android-arrow-back">Cancel</button>
     </form>
   </ion-content>
 </ion-view>

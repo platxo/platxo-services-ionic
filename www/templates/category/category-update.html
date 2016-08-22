@@ -1,4 +1,4 @@
-<ion-view view-title="Category Create">
+<ion-view view-title="Category Update">
   <ion-content padding="true">
     <form ng-submit="update()" class="list">
       <label class="item item-input">
@@ -6,6 +6,7 @@
         <input ng-model="category.name" type="text" placeholder="" value="">
       </label>
       <button type="submit" class="button button-balanced button-block button-outline icon-left ion-android-add">Update</button>
+      <button ng-click="cancel()" class="button button-positive button-block button-outline icon-left ion-android-arrow-back">Cancel</button>
     </form>
   </ion-content>
 </ion-view>
