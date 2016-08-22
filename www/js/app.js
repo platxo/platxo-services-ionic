@@ -6,9 +6,15 @@
 var services = angular.module('services', [
   'ionic',
   'ngCordova',
-  'servicesControllers',
-  'servicesServices',
-  'servicesRoutes'
+  'categoryControllers',
+  'typeControllers',
+  'serviceControllers',
+  'categoryServices',
+  'typeServices',
+  'serviceServices',
+  'categoryRoutes',
+  'typeRoutes',
+  'serviceRoutes'
 ])
 
 services.run(function($ionicPlatform) {
