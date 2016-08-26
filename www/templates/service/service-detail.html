@@ -4,8 +4,8 @@
       <div class="item item-divider">{{service.name}}</div>
       <div class="item item-body">
         <h2>Id: {{service.id}}</h2>
-        <h2 ng-repeat="category in categories | filter: service.category">Category: {{category.name}}</h2>
-        <h2 ng-repeat="type in types | filter: service.type">Type: {{type.name}}</h2>
+        <h2 ng-repeat="category in categories | filter: service.service_category">Category: {{category.name}}</h2>
+        <h2 ng-repeat="type in types | filter: service.service_type">Type: {{type.name}}</h2>
         <h2>Price: {{service.price | currency }}</h2>
       </div>
     </div>
