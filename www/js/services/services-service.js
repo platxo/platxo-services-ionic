@@ -1,15 +1,19 @@
 var serviceServices = angular.module('serviceServices', ['ngResource']);
 
-var version = 'http://development.'
-var baseUrl = 'platxo-bi.appspot.com';
-var servicesUrl = '/api/services/';
-
-serviceServices.service('serviceService', [ '$resource', function ($resource) {
-  return $resource(version + baseUrl + servicesUrl +':id/?format=json', {id: '@id'},{
+serviceServices.service('serviceService', [ '$resource', '$rootScope', function ($resource, $rootScope) {
+  var servicesUrl = '/api/services/';
+  return $resource($rootScope.version + $rootScope.baseUrl + servicesUrl +':id/?format=json', {id: '@id'},{
     list: { method: 'GET', isArray:true },
     detail: { method: 'GET' },
     create: { method: 'POST' },
     update: { method: 'PUT' },
     delete: { method: 'DELETE' }
+  });
+}]);
+
+serviceServices.service('taxService', [ '$resource', '$rootScope', function ($resource, $rootScope) {
+  var taxUrl = '/api/taxes/';
+  return $resource($rootScope.version + $rootScope.baseUrl + taxUrl +':id/?format=json', {id: '@id'},{
+    list: { method: 'GET', isArray:true},
   });
 }]);

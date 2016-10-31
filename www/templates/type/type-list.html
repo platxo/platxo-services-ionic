@@ -1,18 +1,25 @@
-<ion-view view-title="Type List">
-  
+<ion-view view-title="Type List" hide-back-button="true">
+
   <ion-nav-buttons side="left">
     <button ui-sref="tab.type-create" class="button icon ion-android-add-circle"></button>
   </ion-nav-buttons>
-  
-	<ion-content padding="true">
-		<ion-list>
-			<ion-item ui-sref="tab.type-detail({ id: type.id })" ng-repeat="type in types" class="item item-button-right item-thumbnail-left">
-				<h2>{{ type.name }}</h2>
 
-				<div class="buttons">
-				  <ion-option-button ui-sref="tab.type-update({id: type.id})" class="button button-dark button-outline icon-center ion-edit"></ion-option-button>
-				  <ion-option-button ui-sref="tab.type-delete({id: type.id})" class="button button-dark button-outline icon-center ion-android-delete"></ion-option-button>
-				</div>
+  <ion-nav-buttons side="right">
+    <menu-Directive></menu-Directive>
+  </ion-nav-buttons>
+
+	<ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" padding="true">
+    <ion-refresher  pulling-icon="ion-arrow-down-b" on-refresh="refresh()"></ion-refresher>
+		<ion-list>
+      <search-Directive></search-Directive>
+			<ion-item
+      ui-sref="tab.type-detail({ id: type.id })"
+      collection-repeat="type in types | orderBy:'name' | filter:search.value"
+      item-height="100px"
+      on-hold="showActionsheet(type)"
+      >
+				<h2>{{ type.name }}</h2>
+        <h4>{{ type.service_category_name }}</h4>
 			</ion-item>
 		</ion-list>
 	</ion-content>

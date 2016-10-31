@@ -1,24 +1,33 @@
 <ion-view view-title="Service Create">
 	<ion-content padding="true">
 		<form ng-submit="create()" class="list">
-      <label class="item item-input item-select" ng-click="categoryOpenModal()">
+			<label class="item item-input item-select" ng-click="categoryOpenModal()">
         <span class="input-label">Category</span>
-        <input type="text" value="{{product.category}}">
+        <input type="text" ng-model="service.category_name" value="{{service.category_name}}">
       </label>
       <label class="item item-input item-select" ng-click="typeOpenModal()">
         <span class="input-label">Type</span>
-        <input type="text" value="{{product.type}}">
+        <input type="text" ng-model="service.type_name" value="{{service.type_name}}">
       </label>
       <label class="item item-input">
         <span class="input-label">Name</span>
         <input ng-model="service.name" type="text" placeholder="" value="">
       </label>
+			<label class="item item-input">
+        <span class="input-label">Description</span>
+				<textarea ng-model="service.description" rows="2" cols="40"></textarea>
+			</label>
       <label class="item item-input">
         <span class="input-label">Price</span>
         <input ng-model="service.price" type="number" min="0" step="0.01">
       </label>
+			<label class="item item-input item-select" ng-click="taxOpenModal()">
+        <span class="input-label">Tax</span>
+        <input type="text" ng-model="service.tax_name" value="{{service.tax_name}}">
+      </label>
+			<button type="button" ng-click="takePicture()" class="button button-stable button-block button-outline icon-left ion-ios-camera-outline">Take Picture</button>
       <button type="submit" class="button button-balanced button-block button-outline icon-left ion-android-add">Create</button>
-      <button ng-click="cancel()" class="button button-positive button-block button-outline icon-left ion-android-arrow-back">Cancel</button>
+      <button type="button" ng-click="cancel()" class="button button-positive button-block button-outline icon-left ion-android-arrow-back">Cancel</button>
     </form>
 	</ion-content>
 </ion-view>

@@ -1,13 +1,30 @@
 <ion-view view-title="Service Detail">
 	<ion-content padding="true">
     <div class="list card">
-      <div class="item item-divider">{{service.name}}</div>
-      <div class="item item-body">
-        <h2>Id: {{service.id}}</h2>
-        <h2 ng-repeat="category in categories | filter: service.service_category">Category: {{category.name}}</h2>
-        <h2 ng-repeat="type in types | filter: service.service_type">Type: {{type.name}}</h2>
-        <h2>Price: {{service.price | currency }}</h2>
+			<div class="item item-button-right">
+				<h2>{{service.name}}</h2>
+				<div class="buttons">
+          <button ui-sref="tab.service-update({id: service.id})" class="button button-dark button-clear icon-center ion-edit"></ion-option-button>
+          <button ui-sref="tab.service-delete({id: service.id})" class="button button-dark button-clear icon-center ion-android-delete"></ion-option-button>
+        </div>
+			</div>
+			<div class="item item-image">
+        <ion-spinner ng-hide="service.id != null" icon="dots"></ion-spinner>
+        <img class="full-image" ng-src="{{service.picture_url}}">
       </div>
+      <div class="item item-text-wrap">
+        <h2>Id: {{service.id}}</h2>
+				<h2>Name: {{service.name}}</h2>
+				<h2>Category: {{service.service_category_name}}</h2>
+        <h2>Type: {{service.service_type_name}}</h2>
+				<h2>Description: {{service.description}}</h2>
+        <h2>Price: {{service.price | currency }}</h2>
+				<h2>Tax: {{service.tax_name }}</h2>
+      </div>
+			<div class="item item-divider">
+				<h2>Created: {{service.created | date:'medium'}}</h2>
+				<h2>Updated: {{service.updated | date:'medium'}}</h2>
+  		</div>
     </div>
 	</ion-content>
 </ion-view>

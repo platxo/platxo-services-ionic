@@ -1,0 +1,23 @@
+<ion-popover-view>
+  <ion-content>
+
+    <ion-list>
+      <ion-item href="#/profile">
+        <i class="icon ion-person"></i>
+        {{currentEmployee.user}}
+      </ion-item>
+      <ion-item ui-sref="business-list" ng-click="popover.hide()">
+        <i class="icon ion-briefcase"></i>
+          {{currentBusiness.name}}
+      </ion-item>
+      <ion-item ui-sref="settings-list" ng-click="popover.hide()">
+        <i class="icon ion-android-settings"></i>
+        Settings
+      </ion-item>
+      <ion-item on-touch="logout()" ng-click="popover.hide()"><i class="icon ion-power"></i>
+        Logout
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-popover-view>

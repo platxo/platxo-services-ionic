@@ -4,17 +4,34 @@
 		<button ui-sref="tab.service-create" class="button icon ion-android-add-circle"></button>
 	</ion-nav-buttons>
 
-	<ion-content padding="true">
-		<ion-list>
-			<ion-item ui-sref="tab.service-detail({ id: service.id })" ng-repeat="service in services" class="item item-button-right item-thumbnail-left">
-				<h2>{{ service.name }}</h2>
+	<ion-nav-buttons side="right">
+    <menu-Directive></menu-Directive>
+  </ion-nav-buttons>
 
-				<div class="buttons">
-				  <ion-option-button ui-sref="tab.service-update({id: service.id})" class="button button-dark button-outline icon-center ion-edit"></ion-option-button>
-				  <ion-option-button ui-sref="tab.service-delete({id: service.id})" class="button button-dark button-outline icon-center ion-android-delete"></ion-option-button>
-				</div>
+	<ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" padding="true">
+		<ion-refresher  pulling-icon="ion-arrow-down-b" on-refresh="refresh()"></ion-refresher>
+		<ion-list>
+			<search-Directive></search-Directive>
+			<ion-item
+			ui-sref="tab.service-detail({ id: service.id })"
+			collection-repeat="service in services"
+			item-render-buffer="1"
+			class="item item-thumbnail-left"
+			item-height="100px"
+			on-hold="showActionsheet(service)"
+			>
+				<img ng-src="{{service.picture_url}}">
+				<h2>{{ service.name }}</h2>
+				<h4>{{ service.service_type_name }}</h4>
+				<h4>{{service.service_category_name}}</h4>
 			</ion-item>
 		</ion-list>
+		<!-- <ion-infinite-scroll
+		on-infinite="loadMore()"
+		distance="5%"
+		immediate-check="false"
+		>
+		</ion-infinite-scroll> -->
 	</ion-content>
 	<ion-footer-bar align-title="left" keyboard-attach class="bar-dark">
     <h1 class="title">Platxo Services</h1>

@@ -8,20 +8,20 @@ serviceRoutes.config(['$stateProvider', '$urlRouterProvider', function ($statePr
       templateUrl: 'templates/tabs.html'
     })
   	.state('tab.service-list', {
-      url: '/service-list',
+  	  url: '/service-list',
       views: {
         'tab-services': {
           templateUrl: 'templates/service/service-list.html',
-          controller: 'serviceController'
+          controller: 'serviceListCtrl'
         }
       }
-    })
-    .state('tab.service-detail', {
+  	})
+  	.state('tab.service-detail', {
       url: '/service-detail/:id',
       views: {
         'tab-services': {
           templateUrl: 'templates/service/service-detail.html',
-          controller: 'serviceController'
+          controller: 'serviceDetailCtrl'
         }
       }
     })
@@ -30,7 +30,7 @@ serviceRoutes.config(['$stateProvider', '$urlRouterProvider', function ($statePr
       views: {
         'tab-services': {
           templateUrl: 'templates/service/service-create.html',
-          controller: 'serviceController'
+          controller: 'serviceCreateCtrl'
         }
       }
     })
@@ -39,7 +39,7 @@ serviceRoutes.config(['$stateProvider', '$urlRouterProvider', function ($statePr
       views: {
         'tab-services': {
           templateUrl: 'templates/service/service-update.html',
-          controller: 'serviceController'
+          controller: 'serviceUpdateCtrl'
         }
       }
     })
@@ -48,11 +48,11 @@ serviceRoutes.config(['$stateProvider', '$urlRouterProvider', function ($statePr
       views: {
         'tab-services': {
           templateUrl: 'templates/service/service-delete.html',
-          controller: 'serviceController'
+          controller: 'serviceDeleteCtrl'
         }
       }
     })
 
-  $urlRouterProvider.otherwise('/tab/service-list');
+    $urlRouterProvider.otherwise('/login');
 
 }]);
